@@ -2,6 +2,7 @@
 
 namespace EricLagarda\SettingsCard;
 
+use Illuminate\Support\Str;
 use Laravel\Nova\Card;
 
 class SettingsCard extends Card
@@ -19,6 +20,8 @@ class SettingsCard extends Card
     protected $disks = [];
 
     /**
+     * Set the card fields
+     *
      * @param array $fields
      * @return mixed
      */
@@ -28,6 +31,17 @@ class SettingsCard extends Card
             'fields' => $this->fillFieldValues($fields),
             'disks'  => $this->disks,
         ]);
+    }
+
+    /**
+     * Set Name of the card
+     *
+     * @param string $name
+     * @return mixed
+     */
+    public function name(string $name)
+    {
+        return $this->withMeta(['name' => $name]);
     }
 
     /**
@@ -92,7 +106,7 @@ class SettingsCard extends Card
         foreach ($fields as $tab => $fields) {
             $tabs[] = [
                 'name'   => $tab,
-                'key'    => str_slug($tab),
+                'key'    => Str::slug($tab),
                 'fields' => $fields,
                 'init'   => false,
             ];

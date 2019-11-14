@@ -1,3 +1,4 @@
+
 # Nova Settings Card
 
 
@@ -25,8 +26,24 @@ KeyValue::make('Meta')->resolveUsing(function ($value) {
 	composer require ericlagarda/nova-settings-card
 	```
 
+2. Publish [akaunting/setting](https://github.com/akaunting/setting) config and migrations
 
-2. Add SettingsCard to your own Nova Dashboard
+	```php
+	php artisan vendor:publish --tag=setting
+	```
+
+3. Migrate settings table
+	```php
+	php artisan migrate
+	```
+
+4. Add SettingsCard to your own Nova Dashboard
+
+	Available methods:
+
+	* **fields** -> Tabbed nova fields
+	* **name** -> Card name
+
 
 	```php
 	use EricLagarda\SettingsCard\SettingsCard;
@@ -58,9 +75,18 @@ KeyValue::make('Meta')->resolveUsing(function ($value) {
 	                Code::make('Header Styles')->language('sass'),
 	                Code::make('Footer Styles')->language('sass'),
 	            ],
-	        ]),
+	        ])->name('My settings card'),
 	    ];
 
         ...
     }
     ```
+    You can set the name of the card with `name()` functions. Default to `Settings`.
+
+## Localization
+
+```json
+"Settings": "Opciones",
+"Save settings": "Guardar opciones",
+"Settings saved! - Reloading page.": "¡opciones guardadas! - Recargando la página..."
+```

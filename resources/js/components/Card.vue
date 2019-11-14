@@ -1,7 +1,7 @@
 <template>
     <div class="">
 
-        <h1 class="mb-3 text-90 font-normal text-2xl flex">Settings</h1>
+        <h1 class="mb-3 text-90 font-normal text-2xl flex">{{ cardName }}</h1>
 
         <card >
             <div class="tabs-wrap border-b-2 border-40 w-full">
@@ -91,6 +91,16 @@ export default {
 
         this.activeTab = this.card.fields[0].key
         this.card.fields[0].init = true;
+    },
+
+    computed: {
+        cardName() {
+            if (this.card.name) {
+                return this.card.name
+            }
+
+            return this.__('Settings')
+        }
     },
 
     methods: {
