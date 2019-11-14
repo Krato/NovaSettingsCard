@@ -107,9 +107,9 @@ export default {
                 .then(response => {
                     this.$toasted.show(this.__('Settings saved! - Reloading page.'), { type: 'success' });
                     this.working = false
-                    // setTimeout(() => {
-                    //     location.reload();
-                    // }, 3000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
                 })
                 .catch(error => {
                     this.working = false
