@@ -1,4 +1,4 @@
-# Nova Tabs Translations
+# Nova Settings Card
 
 
 Nova card to add options to your website. To store data [akaunting/setting](https://github.com/akaunting/setting) is used. 
