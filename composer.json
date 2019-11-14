@@ -1,0 +1,39 @@
+{
+    "name": "ericlagarda/settings-card",
+    "description": "Settings Card for Laravel Nova.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "settings",
+        "card"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eric Lagarda",
+            "email": "info@ericlagarda.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "akaunting/setting": "^1.1",
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "EricLagarda\\SettingsCard\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "EricLagarda\\SettingsCard\\CardServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
