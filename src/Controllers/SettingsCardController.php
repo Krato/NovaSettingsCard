@@ -59,9 +59,11 @@ class SettingsCardController extends Controller
                 $disk = $this->disks->get($key);
             }
 
-            $this->deletePreviusImage($key, $disk);
+            $this->deletePreviousImage($key, $disk);
 
-            $path = $request->{$key}->store('', $disk);
+            $fileName = sha1($value->getClientOriginalName()).'.'.$value->getClientOriginalExtension();
+
+            $path = $request->{$key}->storeAs('', $fileName, $disk);
 
             return json_encode([
                 'path' => $path,
@@ -77,7 +79,7 @@ class SettingsCardController extends Controller
     /**
      * @param $key
      */
-    private function deletePreviusImage($key, $disk)
+    private function deletePreviousImage($key, $disk)
     {
         $data = setting($key, false);
         if ($data !== false) {
