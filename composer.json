@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "akaunting/setting": "^1.1",
+        "akaunting/laravel-setting": "^1.1",
         "php": ">=7.1.0"
     },
     "autoload": {
